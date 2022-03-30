@@ -10,5 +10,8 @@ COPY PlaywrightTests/*.csproj /src/PlaywrightTests/
 COPY PlaywrightTests/*.cs /src/PlaywrightTests/
 
 WORKDIR /src/PlaywrightTests
+# You might be able to leave the explicit build command off depending on your setup:
+RUN dotnet build
 
+# This is the command that will be run when our container is actually run!
 CMD dotnet test -- NUnit.NumberOfTestWorkers=5
